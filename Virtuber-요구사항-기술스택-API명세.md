@@ -29,7 +29,7 @@ Spring 기반 주식 모의투자 웹 애플리케이션
 ### 1.3 핵심 학습 목표
 
 - Spring Boot 기반 REST API 설계
-- Spring Security 세션 로그인 구현
+- Spring Security 기반 JWT 인증 구현
 - 회원가입 시 계좌 자동 생성
 - JPA 기반 User, Account, Stock, Holding, Trade 도메인 설계
 - 매수/매도 시 잔고, 보유 수량, 거래 내역의 정합성 보장
@@ -63,7 +63,7 @@ Spring 기반 주식 모의투자 웹 애플리케이션
 - 차트
 - 호가창
 - 지정가/시장가 주문
-- JWT/OAuth 인증
+- OAuth 인증
 
 ## 2. 확정 API 목록
 
@@ -112,8 +112,8 @@ POST /api/v1/trades/sell
 
 #### FR-AUTH-001 회원가입
 
-- 사용자는 이메일, 비밀번호, 닉네임을 입력해 회원가입할 수 있다.
-- 이메일은 중복될 수 없다.
+- 사용자는 ID, 비밀번호를 입력해 회원가입할 수 있다.
+- ID는 중복될 수 없다.
 - 비밀번호는 암호화하여 저장한다.
 - 회원가입 성공 시 사용자 계좌를 자동 생성한다.
 - 생성된 계좌에는 시드머니 `10,000,000원`을 지급한다.
@@ -122,7 +122,7 @@ POST /api/v1/trades/sell
 
 ```text
 회원가입 요청
--> 이메일 중복 검사
+-> ID 중복 검사
 -> 비밀번호 암호화
 -> 사용자 저장
 -> 계좌 생성
@@ -133,14 +133,14 @@ POST /api/v1/trades/sell
 
 #### FR-AUTH-002 로그인
 
-- 사용자는 이메일과 비밀번호로 로그인할 수 있다.
+- 사용자는 ID와 비밀번호로 로그인할 수 있다.
 - 로그인 성공 시 Access/Refresh Token이 발급된다.
 - 로그인 실패 시 실패 응답을 반환한다.
 
 #### FR-AUTH-003 로그아웃
 
 - 로그인한 사용자는 로그아웃할 수 있다.
-- 로그아웃 시 세션을 만료한다.
+- 로그아웃 시 Refresh Token을 삭제한다.
 
 ### 4.3 계좌 조회
 
@@ -216,14 +216,14 @@ POST /api/v1/trades/sell
 
 초기 종목 예시:
 
-| 종목코드 | 종목명 | 시장 | 현재가 |
-| --- | --- | --- | ---: |
-| 005930 | 삼성전자 | KOSPI | 78,000 |
-| 000660 | SK하이닉스 | KOSPI | 180,000 |
-| 035420 | NAVER | KOSPI | 180,000 |
-| 035720 | 카카오 | KOSPI | 45,000 |
-| 005380 | 현대차 | KOSPI | 250,000 |
-| 373220 | LG에너지솔루션 | KOSPI | 350,000 |
+| 종목코드 | 종목명 | 현재가 | 상한가 또는 상승 기준 가격 | 하한가 또는 하락 기준 가격 |
+| --- | --- | ---: | ---: | ---: |
+| 005930 | 삼성전자 | 78,000 | 101,400 | 54,600 |
+| 000660 | SK하이닉스 | 180,000 | 234,000 | 126,000 |
+| 035420 | NAVER | 180,000 | 234,000 | 126,000 |
+| 035720 | 카카오 | 45,000 | 58,500 | 31,500 |
+| 005380 | 현대차 | 250,000 | 325,000 | 175,000 |
+| 373220 | LG에너지솔루션 | 350,000 | 455,000 | 245,000 |
 
 #### FR-STOCK-002 주식 목록 조회
 
@@ -236,9 +236,11 @@ POST /api/v1/trades/sell
 - 종목 ID
 - 종목 코드
 - 종목명
-- 시장 구분
 - 현재가
-- 전일 종가
+- 상한가 또는 상승 기준 가격
+- 하한가 또는 하락 기준 가격
+- 회사 정보
+- 재무 정보
 
 ### 4.6 매수
 
@@ -328,14 +330,13 @@ Optional<Account> findByUserIdForUpdate(Long userId);
 - 비밀번호는 안전한 해시 알고리즘으로 암호화한다.
 - 인증이 필요한 API는 Spring Security 설정으로 보호한다.
 - 응답 DTO에는 비밀번호를 포함하지 않는다.
-- 서버 로그에 비밀번호, 세션 ID 같은 민감 정보를 출력하지 않는다.
+- 서버 로그에 비밀번호, Access Token, Refresh Token 같은 민감 정보를 출력하지 않는다.
 - 사용자 식별은 요청 파라미터가 아니라 인증 객체에서 가져온다.
 
 ### 5.4 데이터 검증
 
-- 이메일은 필수 값이며 이메일 형식을 만족해야 한다.
+- ID는 필수 값이다.
 - 비밀번호는 필수 값이며 최소 길이를 만족해야 한다.
-- 닉네임은 필수 값이다.
 - 매수/매도 수량은 1 이상이어야 한다.
 - 존재하지 않는 종목으로 거래할 수 없다.
 - 잔고보다 큰 금액은 매수할 수 없다.
@@ -348,8 +349,33 @@ Optional<Account> findByUserIdForUpdate(Long userId);
 ```json
 {
   "success": false,
-  "code": "INSUFFICIENT_CASH",
-  "message": "현금 잔고가 부족합니다."
+  "data": null,
+  "error": {
+    "code": "TRADE_001",
+    "message": "현금 잔고가 부족합니다.",
+    "details": []
+  },
+  "timestamp": "2026-06-16T10:30:00"
+}
+```
+
+요청값 검증 실패처럼 필드별 상세 사유가 필요한 경우 `error.details`에 필드명과 사유를 포함한다.
+
+```json
+{
+  "success": false,
+  "data": null,
+  "error": {
+    "code": "CMN_002",
+    "message": "입력값이 올바르지 않습니다.",
+    "details": [
+      {
+        "field": "quantity",
+        "reason": "1 이상이어야 합니다."
+      }
+    ]
+  },
+  "timestamp": "2026-06-16T10:30:00"
 }
 ```
 
@@ -357,15 +383,17 @@ Optional<Account> findByUserIdForUpdate(Long userId);
 
 | 코드 | 설명 |
 | --- | --- |
-| `EMAIL_ALREADY_EXISTS` | 이미 가입된 이메일 |
-| `INVALID_LOGIN` | 이메일 또는 비밀번호 불일치 |
-| `UNAUTHORIZED` | 인증되지 않은 사용자 |
-| `ACCOUNT_NOT_FOUND` | 계좌 없음 |
-| `STOCK_NOT_FOUND` | 존재하지 않는 종목 |
-| `HOLDING_NOT_FOUND` | 보유하지 않은 종목 |
-| `INSUFFICIENT_CASH` | 현금 잔고 부족 |
-| `INSUFFICIENT_QUANTITY` | 보유 수량 부족 |
-| `INVALID_QUANTITY` | 잘못된 거래 수량 |
+| `AUTH_001` | 이미 사용 중인 ID |
+| `AUTH_002` | ID 또는 비밀번호 불일치 |
+| `AUTH_003` | 인증되지 않은 사용자 |
+| `AUTH_005` | 유효하지 않은 토큰 |
+| `USER_001` | 존재하지 않는 사용자 |
+| `STOCK_001` | 존재하지 않는 종목 |
+| `TRADE_001` | 현금 잔고 부족 |
+| `TRADE_002` | 매도 수량이 보유 수량을 초과 |
+| `CMN_001` | 접근 권한 없음 |
+| `CMN_002` | 입력값 검증 실패 |
+| `CMN_500` | 서버 내부 오류 |
 
 ### 5.6 테스트
 
@@ -388,16 +416,21 @@ Optional<Account> findByUserIdForUpdate(Long userId);
 
 ## 6. 도메인 모델
 
+도메인 모델은 현재 구현된 엔티티 코드를 기준으로 정의한다.
+
 ### 6.1 User
 
 | 필드 | 타입 | 설명 |
 | --- | --- | --- |
 | id | Long | 사용자 ID |
-| email | String | 로그인 이메일 |
+| userId | String | 로그인 ID |
 | password | String | 암호화된 비밀번호 |
-| nickname | String | 닉네임 |
-| role | Role | 권한 |
-| createdAt | LocalDateTime | 생성 시각 |
+
+제약:
+
+```text
+unique(user_id)
+```
 
 ### 6.2 Account
 
@@ -407,8 +440,6 @@ Optional<Account> findByUserIdForUpdate(Long userId);
 | user | User | 계좌 소유자 |
 | cashBalance | Long | 현금 잔고 |
 | seedMoney | Long | 초기화 기준 시드머니 |
-| createdAt | LocalDateTime | 생성 시각 |
-| updatedAt | LocalDateTime | 수정 시각 |
 
 관계:
 
@@ -423,29 +454,33 @@ User 1 : 1 Account
 | id | Long | 종목 ID |
 | stockCode | String | 종목 코드 |
 | stockName | String | 종목명 |
-| market | String | 시장 구분 |
 | currentPrice | Long | 현재가 |
-| previousClosePrice | Long | 전일 종가 |
-| createdAt | LocalDateTime | 생성 시각 |
-| updatedAt | LocalDateTime | 수정 시각 |
+| upPrice | Long | 상한가 또는 상승 기준 가격 |
+| lowPrice | Long | 하한가 또는 하락 기준 가격 |
+| companyInfo | String | 회사 정보 |
+| financialInfo | String | 재무 정보 |
+
+제약:
+
+```text
+unique(stock_code)
+unique(stock_name)
+```
 
 ### 6.4 Holding
 
 | 필드 | 타입 | 설명 |
 | --- | --- | --- |
 | id | Long | 보유 주식 ID |
-| user | User | 사용자 |
+| account | Account | 보유 계좌 |
 | stock | Stock | 종목 |
 | quantity | Long | 보유 수량 |
 | averagePrice | Long | 평균 매입가 |
-| totalPurchaseAmount | Long | 총 매입금액 |
-| createdAt | LocalDateTime | 생성 시각 |
-| updatedAt | LocalDateTime | 수정 시각 |
 
-권장 제약:
+제약:
 
 ```text
-unique(user_id, stock_id)
+unique(account_id, stock_id)
 ```
 
 ### 6.5 Trade
@@ -453,15 +488,29 @@ unique(user_id, stock_id)
 | 필드 | 타입 | 설명 |
 | --- | --- | --- |
 | id | Long | 거래 ID |
-| user | User | 사용자 |
+| account | Account | 거래 계좌 |
 | stock | Stock | 종목 |
 | tradeType | TradeType | BUY 또는 SELL |
 | quantity | Long | 거래 수량 |
 | price | Long | 거래 가격 |
-| totalAmount | Long | 거래 금액 |
-| tradedAt | LocalDateTime | 거래 시각 |
+| tradedTime | LocalDateTime | 거래 시각 |
 
 거래 내역 조회 API는 제공하지 않지만, 매수/매도 이력 저장과 초기화 처리를 위해 Trade 엔티티는 유지한다.
+
+### 6.6 StockPriceHistory
+
+| 필드 | 타입 | 설명 |
+| --- | --- | --- |
+| id | Long | 주가 이력 ID |
+| stock | Stock | 종목 |
+| price | Long | 기록 가격 |
+| recordedTime | LocalDateTime | 기록 시각 |
+
+인덱스:
+
+```text
+idx_stock_price_histories_stock_time(stock_id, recorded_time)
+```
 
 ## 7. 기술 스택
 
@@ -471,7 +520,7 @@ unique(user_id, stock_id)
 | Framework | Spring Boot | 애플리케이션 기반 |
 | Web | Spring Web | REST API 구현 |
 | ORM | Spring Data JPA | DB 접근 |
-| Security | Spring Security | 세션 로그인, 인증/인가 |
+| Security | Spring Security, JWT | 토큰 기반 인증/인가 |
 | Validation | Bean Validation | 요청값 검증 |
 | Database | MySQL | 개발/운영 DB |
 | Test | JUnit 5, AssertJ | 테스트 |
@@ -480,7 +529,6 @@ unique(user_id, stock_id)
 
 MVP 제외 기술:
 
-- JWT
 - OAuth
 - QueryDSL
 - Redis
@@ -503,7 +551,8 @@ Base URL:
 {
   "success": true,
   "data": {},
-  "message": null
+  "error": null,
+  "timestamp": "2026-06-16T10:30:00"
 }
 ```
 
@@ -512,10 +561,17 @@ Base URL:
 ```json
 {
   "success": false,
-  "code": "ERROR_CODE",
-  "message": "에러 메시지"
+  "data": null,
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "에러 메시지",
+    "details": []
+  },
+  "timestamp": "2026-06-16T10:30:00"
 }
 ```
+
+현재 공통 응답 객체는 별도의 `message` 필드를 제공하지 않는다. 성공 안내 문구가 필요한 경우에도 응답 본문은 `success`, `data`, `error`, `timestamp` 구조를 따른다.
 
 ### 8.2 POST /api/v1/auth/signup
 
@@ -525,9 +581,8 @@ Request:
 
 ```json
 {
-  "email": "zero@example.com",
-  "password": "password1234",
-  "nickname": "zero"
+  "userId": "zero",
+  "password": "password1234"
 }
 ```
 
@@ -537,12 +592,12 @@ Response:
 {
   "success": true,
   "data": {
-    "userId": 1,
-    "email": "zero@example.com",
-    "nickname": "zero",
+    "id": 1,
+    "userId": "zero",
     "cashBalance": 10000000
   },
-  "message": "회원가입이 완료되었습니다."
+  "error": null,
+  "timestamp": "2026-06-16T10:30:00"
 }
 ```
 
@@ -554,7 +609,7 @@ Request:
 
 ```json
 {
-  "email": "zero@example.com",
+  "userId": "zero",
   "password": "password1234"
 }
 ```
@@ -565,11 +620,11 @@ Response:
 {
   "success": true,
   "data": {
-    "userId": 1,
-    "email": "zero@example.com",
-    "nickname": "zero"
+    "id": 1,
+    "userId": "zero"
   },
-  "message": "로그인되었습니다."
+  "error": null,
+  "timestamp": "2026-06-16T10:30:00"
 }
 ```
 
@@ -583,7 +638,8 @@ Response:
 {
   "success": true,
   "data": null,
-  "message": "로그아웃되었습니다."
+  "error": null,
+  "timestamp": "2026-06-16T10:30:00"
 }
 ```
 
@@ -618,7 +674,8 @@ Response:
       }
     ]
   },
-  "message": null
+  "error": null,
+  "timestamp": "2026-06-16T10:30:00"
 }
 ```
 
@@ -635,7 +692,8 @@ Response:
     "cashBalance": 10000000,
     "holdingsCount": 0
   },
-  "message": "계좌가 초기화되었습니다."
+  "error": null,
+  "timestamp": "2026-06-16T10:30:00"
 }
 ```
 
@@ -653,12 +711,15 @@ Response:
       "stockId": 1,
       "stockCode": "005930",
       "stockName": "삼성전자",
-      "market": "KOSPI",
       "currentPrice": 78000,
-      "previousClosePrice": 77000
+      "upPrice": 101400,
+      "lowPrice": 54600,
+      "companyInfo": "전자 제품 및 반도체 제조 기업",
+      "financialInfo": "재무 정보 요약"
     }
   ],
-  "message": null
+  "error": null,
+  "timestamp": "2026-06-16T10:30:00"
 }
 ```
 
@@ -689,9 +750,10 @@ Response:
     "price": 78000,
     "totalAmount": 780000,
     "cashBalance": 9220000,
-    "tradedAt": "2026-06-16T10:30:00"
+    "tradedTime": "2026-06-16T10:30:00"
   },
-  "message": "매수가 완료되었습니다."
+  "error": null,
+  "timestamp": "2026-06-16T10:30:00"
 }
 ```
 
@@ -722,9 +784,10 @@ Response:
     "price": 78000,
     "totalAmount": 390000,
     "cashBalance": 9610000,
-    "tradedAt": "2026-06-16T10:45:00"
+    "tradedTime": "2026-06-16T10:45:00"
   },
-  "message": "매도가 완료되었습니다."
+  "error": null,
+  "timestamp": "2026-06-16T10:45:00"
 }
 ```
 
@@ -736,7 +799,7 @@ Response:
 2. User, Account 엔티티 생성
 3. 회원가입 구현
 4. 회원가입 시 계좌 자동 생성
-5. Spring Security 세션 로그인 구현
+5. Spring Security JWT 로그인 구현
 6. 로그아웃 구현
 
 ### 9.2 2단계
