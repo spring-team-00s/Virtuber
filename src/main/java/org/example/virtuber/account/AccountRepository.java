@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface AccountRepository extends JpaRepository<Account, Long> {
   // UserID로 어카운트 찾기
   Optional<Account> findByUser_Id(Long userId);
-  // 동시 수정 방지
+  // 동시 수정 방지 - 비관적 락
   @Lock(LockModeType.PESSIMISTIC_WRITE)
   @Query("SELECT a FROM Account a WHERE a.user.id = :userId")
   Optional<Account> findByUserIdForUpdate(@Param("userId") Long userId);
