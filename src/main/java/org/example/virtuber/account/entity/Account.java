@@ -5,6 +5,8 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.virtuber.common.exception.BusinessException;
+import org.example.virtuber.common.exception.ErrorCode;
 import org.example.virtuber.user.entity.User;
 
 @Entity
@@ -34,4 +36,24 @@ public class Account {
         this.cashBalance = seedMoney;
         this.seedMoney = seedMoney;
     }
+
+    // 매수시 현금 차감
+    public void decreaseCash(Long amount) {
+        if(this.cashBalance < amount) {
+            throw new BusinessException(ErrorCode.INSUFFICIENT_CASH);
+        }
+        this.cashBalance -= amount;
+    }
+
+    // 매도시 현금 증가
+    public void increaseCash(Long amount) {
+        this.cashBalance += amount;
+    }
+
+    // 한강버튼 계좌초기화
+    public void resetCash() {
+        this.cashBalance = this.seedMoney;
+    }
+
+
 }
