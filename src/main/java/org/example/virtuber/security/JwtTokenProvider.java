@@ -45,8 +45,8 @@ public class JwtTokenProvider {
     return true;
   }
 
-  public Long getUserId(String token) {
-    return Long.valueOf(getClaims(token).getSubject());
+  public String getUserId(String token) {
+    return getClaims(token).getSubject();
   }
 
   private Claims getClaims(String token) {

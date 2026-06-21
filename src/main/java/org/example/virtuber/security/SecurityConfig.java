@@ -1,5 +1,11 @@
 package org.example.virtuber.security;
 
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.security.SecurityRequirement;
+import io.swagger.v3.oas.models.security.SecurityScheme;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,10 +16,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
+
+  private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
   @Bean
   public PasswordEncoder passwordEncoder() {
@@ -35,10 +45,31 @@ public class SecurityConfig {
             .requestMatchers(
                 "/api/v1/auth/signup",
                 "/api/v1/auth/signin",
-                "/api/v1/stocks"
+                "/api/v1/stocks",
+                "/swagger-ui/**",
+                "/v3/api-docs/**",
+                "/swagger-ui.html"
             ).permitAll()
             .anyRequest().authenticated()
-        )
+        ).addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
         .build();
+  }
+
+  @Bean
+  public OpenAPI openAPI() {
+    String schemeName = "bearerAuth";
+
+    return new OpenAPI()
+            .info(new Info()
+                    .title("Virtuber API")
+                    .description("주식 모의투자 API")
+                    .version("v1"))
+            .components(new Components()
+                    .addSecuritySchemes(schemeName,
+                            new SecurityScheme()
+                                    .type(SecurityScheme.Type.HTTP)
+                                    .scheme("bearer")
+                                    .bearerFormat("JWT")))
+            .addSecurityItem(new SecurityRequirement().addList(schemeName));
   }
 }

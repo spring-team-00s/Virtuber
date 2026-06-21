@@ -2,6 +2,7 @@ package org.example.virtuber.account.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.example.virtuber.user.entity.User;
@@ -10,6 +11,7 @@ import org.example.virtuber.user.entity.User;
 @Table(name = "accounts")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class Account {
 
     @Id
@@ -26,4 +28,10 @@ public class Account {
 
     @Column(name = "seed_money", nullable = false)
     private Long seedMoney;
+
+    public Account(User user, Long seedMoney) {
+        this.user = user;
+        this.cashBalance = seedMoney;
+        this.seedMoney = seedMoney;
+    }
 }

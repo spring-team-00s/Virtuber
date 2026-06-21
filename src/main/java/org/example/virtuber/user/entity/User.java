@@ -2,7 +2,6 @@ package org.example.virtuber.user.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,7 +14,6 @@ import lombok.NoArgsConstructor;
 )
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,11 +27,8 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    public static User create(String userId, String encodedPassword) {
-        return new User(
-            0L,
-            userId,
-            encodedPassword
-        );
+    public User(String userId, String encodedPassword) {
+        this.userId = userId;
+        this.password = encodedPassword;
     }
 }
