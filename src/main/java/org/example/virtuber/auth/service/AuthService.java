@@ -4,10 +4,9 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.example.virtuber.account.AccountRepository;
 import org.example.virtuber.account.entity.Account;
-import org.example.virtuber.auth.dto.AuthResponse;
-import org.example.virtuber.auth.dto.RegisterRequest;
-import org.example.virtuber.auth.dto.SigninRequest;
-import org.example.virtuber.auth.dto.SigninResponse;
+import org.example.virtuber.auth.dto.*;
+import org.example.virtuber.auth.entity.RefreshToken;
+import org.example.virtuber.auth.repository.RefreshTokenRepository;
 import org.example.virtuber.common.exception.BusinessException;
 import org.example.virtuber.common.exception.ErrorCode;
 import org.example.virtuber.security.JwtTokenProvider;
@@ -24,7 +23,7 @@ public class AuthService {
   private final UserRepository userRepository;
   private final AccountRepository accountRepository;
   private final PasswordEncoder passwordEncoder;
-  private final AuthenticationManager authenticationManager;
+  private final RefreshTokenRepository refreshTokenRepository;
 
   @Transactional
   public AuthResponse register(RegisterRequest request) {
@@ -61,10 +60,52 @@ public class AuthService {
 
     String accessToken = jwtTokenProvider.createAccessToken(user.getId());
 
+    String refreshToken = jwtTokenProvider.createRefreshToken(user.getId());
+    RefreshToken savedRefreshToken = refreshTokenRepository.findByUserId(user.getId())
+            .orElseGet(() -> new RefreshToken(
+                    user.getId(),
+                    refreshToken,
+                    jwtTokenProvider.getRefreshTokenExpiresAt()
+            ));
+    savedRefreshToken.update(
+            refreshToken,
+            jwtTokenProvider.getRefreshTokenExpiresAt()
+    );
+    refreshTokenRepository.save(savedRefreshToken);
+
     return new SigninResponse(
             user.getId(),
             user.getUserId(),
-            accessToken
+            accessToken,
+            refreshToken
     );
+  }
+
+  @Transactional
+  public ReissueResponse reissue(ReissueRequest request) {
+    String refreshToken = request.refreshToken();
+
+    if (!jwtTokenProvider.validateToken(refreshToken)) {
+      throw new BusinessException(ErrorCode.INVALID_TOKEN);
+    }
+
+    RefreshToken savedToken = refreshTokenRepository.findByToken(refreshToken)
+            .orElseThrow(() -> new BusinessException(ErrorCode.INVALID_TOKEN));
+
+    if (savedToken.isExpired()) {
+      refreshTokenRepository.delete(savedToken);
+      throw new BusinessException(ErrorCode.INVALID_TOKEN);
+    }
+
+    Long userId = Long.valueOf(jwtTokenProvider.getUserId(refreshToken));
+
+    String newAccesstoken = jwtTokenProvider.createAccessToken(userId);
+
+    return new ReissueResponse(newAccesstoken);
+  }
+
+  @Transactional
+  public void signout(SignoutRequest request) {
+    refreshTokenRepository.deleteByToken(request.refreshToken());
   }
 }
