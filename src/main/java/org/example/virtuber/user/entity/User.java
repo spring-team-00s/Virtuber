@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,4 +26,9 @@ public class User {
     // 암호화된 비밀번호
     @Column(nullable = false)
     private String password;
+
+    public User(String userId, String encodedPassword) {
+        this.userId = userId;
+        this.password = encodedPassword;
+    }
 }

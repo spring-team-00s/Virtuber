@@ -20,3 +20,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+server:
+  port: 8000
+
+jwt:
+  secret: ${JWT_SECRET:TiMxINeC90ihi4b3NFA1v9ZBLdCKJL5Y3QvxoJMzN03}
+  access-token-expiration-ms: 1800000 # 30분

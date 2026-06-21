@@ -1,0 +1,12 @@
+package org.example.virtuber.auth.dto;
+
+import jakarta.validation.constraints.NotBlank;
+
+public record SigninRequest (
+        @NotBlank(message = "ID는 필수 항목입니다.")
+        String userId,
+
+        @NotBlank(message = "비밀번호는 필수 항목입니다.")
+        String password
+) {
+}
