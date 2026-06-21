@@ -42,4 +42,22 @@ public class Trade {
 
     @Column(name = "traded_time", nullable = false)
     private LocalDateTime tradedTime;
+
+    // 거래내역 생성자
+    private Trade(Account account, Stock stock, TradeType tradeType, Long quantity, Long price) {
+        this.account = account;
+        this.stock = stock;
+        this.tradeType = tradeType;
+        this.quantity = quantity;
+        this.price = price;
+        this.tradedTime = LocalDateTime.now();
+    }
+    // 매수 거래 생성
+    public static Trade buy(Account account, Stock stock, Long quantity, Long price) {
+        return new Trade(account, stock, TradeType.BUY, quantity, price);
+    }
+    // 매도 거래 생성
+    public static Trade sell(Account account, Stock stock, Long quantity, Long price) {
+        return new Trade(account, stock, TradeType.SELL, quantity, price);
+    }
 }
