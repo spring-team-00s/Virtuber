@@ -16,6 +16,9 @@ public enum ErrorCode {
   // USER
   USER_NOT_FOUND(HttpStatus.NOT_FOUND, "USER_001", "존재하지 않는 사용자입니다."),
 
+  // ACCOUNT
+  ACCOUNT_NOT_FOUND(HttpStatus.NOT_FOUND, "ACCOUNT_001", "존재하지 않는 계좌입니다."),
+
   // STOCK
   STOCK_NOT_FOUND(HttpStatus.NOT_FOUND, "STOCK_001", "존재하지 않는 종목입니다."),
 
