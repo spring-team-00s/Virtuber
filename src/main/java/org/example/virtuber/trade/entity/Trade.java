@@ -43,21 +43,38 @@ public class Trade {
     @Column(name = "traded_time", nullable = false)
     private LocalDateTime tradedTime;
 
+    // 매도 당시 판매 전 보유 평단가. 매수 거래는 null.
+    @Column(name = "average_price_before_sell")
+    private Long averagePriceBeforeSell;
+
+    // 매도 실현손익. (매도가 - 판매 전 평균가) * 매도수량. 매수 거래는 null.
+    @Column(name = "sell_profit_amount")
+    private Long sellProfitAmount;
+
+    // 매도 수익률. ((매도가 - 판매 전 평균가) / 판매 전 평균가) * 100. 매수 거래는 null.
+    @Column(name = "sell_profit_rate")
+    private Double sellProfitRate;
+
     // 거래내역 생성자
-    private Trade(Account account, Stock stock, TradeType tradeType, Long quantity, Long price) {
+    private Trade(Account account, Stock stock, TradeType tradeType, Long quantity, Long price, Long averagePriceBeforeSell, Long sellProfitAmount, Double sellProfitRate) {
         this.account = account;
         this.stock = stock;
         this.tradeType = tradeType;
         this.quantity = quantity;
         this.price = price;
+        this.averagePriceBeforeSell = averagePriceBeforeSell;
+        this.sellProfitAmount = sellProfitAmount;
+        this.sellProfitRate = sellProfitRate;
         this.tradedTime = LocalDateTime.now();
     }
     // 매수 거래 생성
     public static Trade buy(Account account, Stock stock, Long quantity, Long price) {
-        return new Trade(account, stock, TradeType.BUY, quantity, price);
+        return new Trade(account, stock, TradeType.BUY, quantity, price, null, null, null);
     }
     // 매도 거래 생성
-    public static Trade sell(Account account, Stock stock, Long quantity, Long price) {
-        return new Trade(account, stock, TradeType.SELL, quantity, price);
+    public static Trade sell(Account account, Stock stock, Long quantity, Long price, Long averagePriceBeforeSell, Long sellProfitAmount, Double sellProfitRate) {
+        return new Trade(account, stock, TradeType.SELL, quantity, price, averagePriceBeforeSell, sellProfitAmount, sellProfitRate);
     }
+
+
 }
