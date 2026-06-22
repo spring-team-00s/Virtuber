@@ -54,6 +54,4 @@ public class Account {
     public void resetCash() {
         this.cashBalance = this.seedMoney;
     }
-
-
 }

@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
   // AUTH
   DUPLICATE_ID(HttpStatus.CONFLICT, "AUTH_001", "이미 사용 중인 ID입니다."),
-  INVALID_CREDENTIALS(HttpStatus.CONFLICT, "AUTH_002", "이메일 또는 비밀번호가 올바르지 않습니다."),
+  INVALID_CREDENTIALS(HttpStatus.CONFLICT, "AUTH_002", "ID 또는 비밀번호가 올바르지 않습니다."),
   UNAUTHORIZED(HttpStatus.UNAUTHORIZED, "AUTH_003", "로그인이 필요합니다."),
   INVALID_TOKEN(HttpStatus.UNAUTHORIZED, "AUTH_005", "유효하지 않은 토큰입니다."),
 
