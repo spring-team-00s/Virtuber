@@ -28,3 +28,10 @@ jwt:
   secret: ${JWT_SECRET:TiMxINeC90ihi4b3NFA1v9ZBLdCKJL5Y3QvxoJMzN03}
   access-token-expiration-ms: 1800000 # 30분
   refresh-token-expiration-ms: 1209600000 # 14일
+
+stock:
+  price-update:
+    fixed-delay-ms: 10000
+    initial-delay-ms: 5000
+    min-rate: -0.01
+    max-rate: 0.01

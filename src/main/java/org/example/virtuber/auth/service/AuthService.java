@@ -2,7 +2,7 @@ package org.example.virtuber.auth.service;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import org.example.virtuber.account.AccountRepository;
+import org.example.virtuber.account.repository.AccountRepository;
 import org.example.virtuber.account.entity.Account;
 import org.example.virtuber.auth.dto.*;
 import org.example.virtuber.auth.entity.RefreshToken;

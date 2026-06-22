@@ -35,4 +35,14 @@ public class StockPriceHistory {
 
     @Column(name = "recorded_time", nullable = false)
     private LocalDateTime recordedTime;
+
+    private StockPriceHistory(Stock stock, Long price, LocalDateTime recordedTime) {
+        this.stock = stock;
+        this.price = price;
+        this.recordedTime = recordedTime;
+    }
+
+    public static StockPriceHistory record(Stock stock, Long price, LocalDateTime recordedTime) {
+        return new StockPriceHistory(stock, price, recordedTime);
+    }
 }

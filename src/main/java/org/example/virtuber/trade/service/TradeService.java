@@ -1,7 +1,7 @@
 package org.example.virtuber.trade.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.virtuber.account.AccountRepository;
+import org.example.virtuber.account.repository.AccountRepository;
 import org.example.virtuber.account.entity.Account;
 import org.example.virtuber.common.exception.BusinessException;
 import org.example.virtuber.common.exception.ErrorCode;
