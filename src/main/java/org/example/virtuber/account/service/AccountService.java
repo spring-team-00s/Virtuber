@@ -1,7 +1,7 @@
 package org.example.virtuber.account.service;
 
 import lombok.RequiredArgsConstructor;
-import org.example.virtuber.account.AccountRepository;
+import org.example.virtuber.account.repository.AccountRepository;
 import org.example.virtuber.account.dto.AccountInitRequest;
 import org.example.virtuber.account.dto.AccountInitResponse;
 import org.example.virtuber.account.dto.AccountMeResponse;

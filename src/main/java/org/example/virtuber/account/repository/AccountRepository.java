@@ -1,4 +1,4 @@
-package org.example.virtuber.account;
+package org.example.virtuber.account.repository;
 
 import jakarta.persistence.LockModeType;
 import org.example.virtuber.account.entity.Account;

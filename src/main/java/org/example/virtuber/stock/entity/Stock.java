@@ -41,4 +41,8 @@ public class Stock {
 
     @Column(name = "financial_info", columnDefinition = "TEXT")
     private String financialInfo;
+
+    public void changePrice(Long newPrice) {
+        this.currentPrice = newPrice;
+    }
 }
