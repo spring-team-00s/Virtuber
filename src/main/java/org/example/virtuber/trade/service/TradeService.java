@@ -73,11 +73,15 @@ public class TradeService {
                 .findByAccount_IdAndStock_Id(account.getId(), stock.getId())
                 .orElseThrow(() -> new BusinessException(ErrorCode.INSUFFICIENT_HOLDING));
 
+        Long averagePriceBeforeSell = holding.getAveragePrice();
+        Long sellProfitAmount = (price - averagePriceBeforeSell) * quantity;
+        Double sellProfitRate = calculateProfitRate(price, averagePriceBeforeSell);
+
         holding.sell(quantity);
         account.increaseCash(totalAmount);
 
         Trade trade = tradeRepository.save(
-                Trade.sell(account, stock, quantity, price)
+                Trade.sell(account, stock, quantity, price, averagePriceBeforeSell, sellProfitAmount, sellProfitRate)
         );
 
         if(holding.isEmpty()) {
@@ -95,6 +99,16 @@ public class TradeService {
     private Stock getStock(Long stockId) {
         return stockRepository.findById(stockId)
                 .orElseThrow(() -> new BusinessException(ErrorCode.STOCK_NOT_FOUND));
+    }
+
+    private Double calculateProfitRate(Long sellPrice, Long averagePriceBeforeSell) {
+        if(averagePriceBeforeSell == null || averagePriceBeforeSell == 0) {
+            return 0.0;
+        }
+        double profitRate = (sellPrice.doubleValue() - averagePriceBeforeSell.doubleValue())
+            / averagePriceBeforeSell.doubleValue() * 100;
+
+        return Math.round(profitRate * 100.0) / 100.0;
     }
 
     // 거래 내역 조회
