@@ -1,0 +1,305 @@
+{"kind":"deck","id":"pr/umuqck","name":"Deck"}
+{"kind":"layout","layoutId":"cfe8a88a-a935-46c6-aadd-f65d93423872","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"922c3c1b-8a39-409c-bae1-8981476fec4f","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/41gmh8","slide":1,"title":"Spring Boot REST API Project","textShapes":7}
+{"kind":"textbox","id":"sh/vmtwra5g","slide":1,"text":"Spring Boot REST API Project","textPreview":"Spring Boot REST API Project","textChars":28,"textLines":1,"bbox":[64,58,720,34]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":1,"text":"Virtuber\n주식 모의투자 API","textPreview":"Virtuber | 주식 모의투자 API","textChars":20,"textLines":2,"bbox":[64,180,790,172]}
+{"kind":"textbox","id":"sh/dsji5sne","slide":1,"text":"스프링의 기본 구조와 동작 원리를 복습하기 위한\n작고 완결된 모의투자 서비스","textPreview":"스프링의 기본 구조와 동작 원리를 복습하기 위한 | 작고 완결된 모의투자 서비스","textChars":42,"textLines":2,"bbox":[68,386,680,82]}
+{"kind":"shape","id":"sh/6dcbulwv","slide":1,"bbox":[894,0,386,720]}
+{"kind":"textbox","id":"sh/vy90je9c","slide":1,"text":"Controller\n→ Service\n→ Repository\n→ Database","textPreview":"Controller | → Service | → Repository | → Database","textChars":44,"textLines":4,"bbox":[932,214,286,228]}
+{"kind":"textbox","id":"sh/oj2t83it","slide":1,"text":"JWT · JPA · Transaction · Lock · Scheduler","textPreview":"JWT · JPA · Transaction · Lock · Scheduler","textChars":42,"textLines":1,"bbox":[932,498,284,64]}
+{"kind":"textbox","id":"sh/d4vmtwra","slide":1,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/6hcrmhk3","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"notes","id":"nt/41gmh8","slide":1,"text":""}
+{"kind":"slide","id":"sl/xczrnr","slide":2,"title":"목차","textShapes":28}
+{"kind":"textbox","id":"sh/94fu18jq","slide":2,"text":"목차","textPreview":"목차","textChars":2,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/2hwfyxob","slide":2,"text":"발표 흐름","textPreview":"발표 흐름","textChars":5,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/r2p8nqxs","slide":2,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/gvy90je9","slide":2,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/9gr2p8nq","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"textbox","id":"sh/2p8nqxs7","slide":2,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[64,188,54,34]}
+{"kind":"textbox","id":"sh/ra5gbq1o","slide":2,"text":"배경","textPreview":"배경","textChars":2,"textLines":1,"bbox":[134,184,360,32]}
+{"kind":"textbox","id":"sh/kzupwb2h","slide":2,"text":"왜 모의투자 API인가","textPreview":"왜 모의투자 API인가","textChars":12,"textLines":1,"bbox":[134,222,420,30]}
+{"kind":"textbox","id":"sh/9knih4by","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[64,282,54,34]}
+{"kind":"textbox","id":"sh/p8nqxs72","slide":2,"text":"학습 목표","textPreview":"학습 목표","textChars":5,"textLines":1,"bbox":[134,278,360,32]}
+{"kind":"textbox","id":"sh/0nuxc3yl","slide":2,"text":"Spring Boot, Security, JPA, Transaction","textPreview":"Spring Boot, Security, JPA, Transaction","textChars":39,"textLines":1,"bbox":[134,316,420,30]}
+{"kind":"textbox","id":"sh/72x4nap4","slide":2,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[64,376,54,34]}
+{"kind":"textbox","id":"sh/ih4byhgn","slide":2,"text":"프로젝트 구조","textPreview":"프로젝트 구조","textChars":7,"textLines":1,"bbox":[134,372,360,32]}
+{"kind":"textbox","id":"sh/pkzupwb2","slide":2,"text":"패키지와 계층 흐름","textPreview":"패키지와 계층 흐름","textChars":10,"textLines":1,"bbox":[134,410,420,30]}
+{"kind":"textbox","id":"sh/0z61032l","slide":2,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[64,470,54,34]}
+{"kind":"textbox","id":"sh/7ed8bat4","slide":2,"text":"주요 기능","textPreview":"주요 기능","textChars":5,"textLines":1,"bbox":[134,466,360,32]}
+{"kind":"textbox","id":"sh/itgfmlkj","slide":2,"text":"사용자 흐름과 핵심 기능","textPreview":"사용자 흐름과 핵심 기능","textChars":13,"textLines":1,"bbox":[134,504,420,30]}
+{"kind":"textbox","id":"sh/pwb2hwfy","slide":2,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[642,188,54,34]}
+{"kind":"textbox","id":"sh/0bi9s36h","slide":2,"text":"주가 데이터","textPreview":"주가 데이터","textChars":6,"textLines":1,"bbox":[712,184,360,32]}
+{"kind":"textbox","id":"sh/sneloj2t","slide":2,"text":"목 데이터와 Scheduler","textPreview":"목 데이터와 Scheduler","textChars":16,"textLines":1,"bbox":[712,222,420,30]}
+{"kind":"textbox","id":"sh/l87ed8ba","slide":2,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[642,282,54,34]}
+{"kind":"textbox","id":"sh/ahoza1gv","slide":2,"text":"인증 방식","textPreview":"인증 방식","textChars":5,"textLines":1,"bbox":[712,278,360,32]}
+{"kind":"textbox","id":"sh/32lszqtc","slide":2,"text":"JWT와 Security Filter","textPreview":"JWT와 Security Filter","textChars":20,"textLines":1,"bbox":[712,316,420,30]}
+{"kind":"textbox","id":"sh/szqtcj6t","slide":2,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[642,376,54,34]}
+{"kind":"textbox","id":"sh/lkjm1cfa","slide":2,"text":"도메인/API","textPreview":"도메인/API","textChars":7,"textLines":1,"bbox":[712,372,360,32]}
+{"kind":"textbox","id":"sh/at47y1kr","slide":2,"text":"엔티티와 10개 엔드포인트","textPreview":"엔티티와 10개 엔드포인트","textChars":14,"textLines":1,"bbox":[712,410,420,30]}
+{"kind":"textbox","id":"sh/3ex0nuxc","slide":2,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[642,470,54,34]}
+{"kind":"textbox","id":"sh/w3m94fu1","slide":2,"text":"정합성 처리","textPreview":"정합성 처리","textChars":6,"textLines":1,"bbox":[712,466,360,32]}
+{"kind":"textbox","id":"sh/loj2t83i","slide":2,"text":"트랜잭션과 비관적 락","textPreview":"트랜잭션과 비관적 락","textChars":11,"textLines":1,"bbox":[712,504,420,30]}
+{"kind":"notes","id":"nt/xczrnr","slide":2,"text":""}
+{"kind":"slide","id":"sl/j1ws0k","slide":3,"title":"1. 배경","textShapes":14}
+{"kind":"textbox","id":"sh/knih4byh","slide":3,"text":"1. 배경","textPreview":"1. 배경","textChars":5,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/v6psfil0","slide":3,"text":"배경: 기본에 충실한 프로젝트","textPreview":"배경: 기본에 충실한 프로젝트","textChars":16,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/2lszqtcj","slide":3,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/d0z61032","slide":3,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/kf6dcbul","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"textbox","id":"sh/vu9knih4","slide":3,"text":"목표는 화려한 기능보다 Spring의 기본 동작을 직접 연결해 보는 것","textPreview":"목표는 화려한 기능보다 Spring의 기본 동작을 직접 연결해 보는 것","textChars":39,"textLines":1,"bbox":[64,176,980,40]}
+{"kind":"shape","id":"sh/29gr2p8n","slide":3,"bbox":[64,260,530,238]}
+{"kind":"textbox","id":"sh/donyd0z6","slide":3,"text":"왜 Spring 복습 프로젝트인가","textPreview":"왜 Spring 복습 프로젝트인가","textChars":18,"textLines":1,"bbox":[92,286,450,36]}
+{"kind":"textbox","id":"sh/k3q5o7qp","slide":3,"text":"Controller, Service, Repository 계층을 명확히 나눌 수 있음\n요청 검증, 예외 처리, 공통 응답을 한 흐름에서 확인\n인증/인가와 도메인 로직을 함께 다루기 좋음","textPreview":"Controller, Service, Repository 계층을 명확히 나눌 수 있음 | 요청 검증, 예외 처리, 공통 응답을 한 흐름에서 확인 | 인증/인가와 도메인 로직을 함께 다루기 좋음","textChars":103,"textLines":3,"bbox":[94,342,464,126]}
+{"kind":"shape","id":"sh/at47y1kr","slide":3,"bbox":[662,260,530,238]}
+{"kind":"textbox","id":"sh/3ex0nuxc","slide":3,"text":"왜 모의투자인가","textPreview":"왜 모의투자인가","textChars":8,"textLines":1,"bbox":[690,286,430,36]}
+{"kind":"textbox","id":"sh/szqtcj6t","slide":3,"text":"CRUD, 조회, 거래 생성, 초기화가 자연스럽게 포함\n동시 매수/매도에서 잔고와 수량 정합성 문제가 발생\n작은 MVP 안에서 트랜잭션 경계를 연습하기 좋음","textPreview":"CRUD, 조회, 거래 생성, 초기화가 자연스럽게 포함 | 동시 매수/매도에서 잔고와 수량 정합성 문제가 발생 | 작은 MVP 안에서 트랜잭션 경계를 연습하기 좋음","textChars":87,"textLines":3,"bbox":[692,342,462,126]}
+{"kind":"shape","id":"sh/lkjm1cfa","slide":3,"bbox":[168,548,140,42]}
+{"kind":"textbox","id":"sh/ahoza1gv","slide":3,"text":"CRUD","textPreview":"CRUD","textChars":4,"textLines":1,"bbox":[186,557,104,26]}
+{"kind":"shape","id":"sh/32lszqtc","slide":3,"bbox":[350,548,140,42]}
+{"kind":"textbox","id":"sh/sneloj2t","slide":3,"text":"JWT","textPreview":"JWT","textChars":3,"textLines":1,"bbox":[368,557,104,26]}
+{"kind":"shape","id":"sh/l87ed8ba","slide":3,"bbox":[532,548,140,42]}
+{"kind":"textbox","id":"sh/e9cvixcz","slide":3,"text":"JPA","textPreview":"JPA","textChars":3,"textLines":1,"bbox":[550,557,104,26]}
+{"kind":"shape","id":"sh/3q5o7qpg","slide":3,"bbox":[714,548,190,42]}
+{"kind":"textbox","id":"sh/vmtwra5g","slide":3,"text":"Transaction","textPreview":"Transaction","textChars":11,"textLines":1,"bbox":[732,557,154,26]}
+{"kind":"shape","id":"sh/61032lsz","slide":3,"bbox":[946,548,206,42]}
+{"kind":"textbox","id":"sh/dsji5sne","slide":3,"text":"Concurrency","textPreview":"Concurrency","textChars":11,"textLines":1,"bbox":[964,557,170,26]}
+{"kind":"notes","id":"nt/j1ws0k","slide":3,"text":""}
+{"kind":"slide","id":"sl/enxgfl","slide":4,"title":"2. 학습 목표","textShapes":20}
+{"kind":"textbox","id":"sh/epkzupwb","slide":4,"text":"2. 학습 목표","textPreview":"2. 학습 목표","textChars":8,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/pg3ex0nu","slide":4,"text":"학습 목표: Spring의 핵심 흐름을 직접 구현","textPreview":"학습 목표: Spring의 핵심 흐름을 직접 구현","textChars":27,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/wval87ed","slide":4,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/7mp0bi9s","slide":4,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/e1w7mp0b","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"textbox","id":"sh/psfil0rq","slide":4,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[64,186,54,34]}
+{"kind":"textbox","id":"sh/w7mp0bi9","slide":4,"text":"REST API 설계","textPreview":"REST API 설계","textChars":11,"textLines":1,"bbox":[142,183,330,34]}
+{"kind":"textbox","id":"sh/7u54zido","slide":4,"text":"요청/응답 DTO, Controller, 공통 응답","textPreview":"요청/응답 DTO, Controller, 공통 응답","textChars":28,"textLines":1,"bbox":[484,188,680,32]}
+{"kind":"shape","id":"sh/ed8bat47","slide":4,"bbox":[64,238,1086,1]}
+{"kind":"textbox","id":"sh/onyd0z61","slide":4,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[64,264,54,34]}
+{"kind":"textbox","id":"sh/d8v6psfi","slide":4,"text":"Spring Security + JWT","textPreview":"Spring Security + JWT","textChars":21,"textLines":1,"bbox":[142,261,330,34]}
+{"kind":"textbox","id":"sh/6hcrmhk3","slide":4,"text":"Access/Refresh Token, 인증 필터, 보호 API","textPreview":"Access/Refresh Token, 인증 필터, 보호 API","textChars":35,"textLines":1,"bbox":[484,266,680,32]}
+{"kind":"shape","id":"sh/z25kb6xk","slide":4,"bbox":[64,316,1086,1]}
+{"kind":"textbox","id":"sh/ovahoza1","slide":4,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[64,342,54,34]}
+{"kind":"textbox","id":"sh/dg7adsji","slide":4,"text":"JPA 도메인 설계","textPreview":"JPA 도메인 설계","textChars":10,"textLines":1,"bbox":[142,339,330,34]}
+{"kind":"textbox","id":"sh/6tovahoz","slide":4,"text":"User, Account, Stock, Holding, Trade 관계","textPreview":"User, Account, Stock, Holding, Trade 관계","textChars":39,"textLines":1,"bbox":[484,344,680,32]}
+{"kind":"shape","id":"sh/vahoza1g","slide":4,"bbox":[64,394,1086,1]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[64,420,54,34]}
+{"kind":"textbox","id":"sh/dsji5sne","slide":4,"text":"거래 정합성","textPreview":"거래 정합성","textChars":6,"textLines":1,"bbox":[142,417,330,34]}
+{"kind":"textbox","id":"sh/hk3q5o7q","slide":4,"text":"잔고, 보유 수량, 거래 내역을 한 번에 갱신","textPreview":"잔고, 보유 수량, 거래 내역을 한 번에 갱신","textChars":25,"textLines":1,"bbox":[484,422,680,32]}
+{"kind":"shape","id":"sh/oza1gvy9","slide":4,"bbox":[64,472,1086,1]}
+{"kind":"textbox","id":"sh/zed8v6ps","slide":4,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[64,498,54,34]}
+{"kind":"textbox","id":"sh/6xkf6dcb","slide":4,"text":"트랜잭션 처리","textPreview":"트랜잭션 처리","textChars":7,"textLines":1,"bbox":[142,495,330,34]}
+{"kind":"textbox","id":"sh/hwfyxobm","slide":4,"text":"@Transactional과 계좌 단위 락으로 동시성 제어","textPreview":"@Transactional과 계좌 단위 락으로 동시성 제어","textChars":32,"textLines":1,"bbox":[484,500,680,32]}
+{"kind":"shape","id":"sh/obm58z25","slide":4,"bbox":[64,550,1086,1]}
+{"kind":"shape","id":"sh/zqtcj6to","slide":4,"bbox":[886,464,310,128]}
+{"kind":"textbox","id":"sh/65wjudg7","slide":4,"text":"@RestController\n@Service\n@Repository\n@Transactional","textPreview":"@RestController | @Service | @Repository | @Transactional","textChars":51,"textLines":4,"bbox":[908,484,266,88]}
+{"kind":"notes","id":"nt/enxgfl","slide":4,"text":""}
+{"kind":"slide","id":"sl/cut2xb","slide":5,"title":"프로젝트 구조","textShapes":17}
+{"kind":"textbox","id":"sh/a5gbq1or","slide":5,"text":"프로젝트 구조","textPreview":"프로젝트 구조","textChars":7,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/lszqtcj6","slide":5,"text":"프로젝트 구조: 계층과 관심사 분리","textPreview":"프로젝트 구조: 계층과 관심사 분리","textChars":19,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/s72x4nap","slide":5,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/3ylc7u54","slide":5,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/adsji5sn","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"textbox","id":"sh/h4byhgn2","slide":5,"text":"요청은 Controller에서 시작해 Service의 비즈니스 로직을 거쳐 Repository/JPA로 저장됩니다.","textPreview":"요청은 Controller에서 시작해 Service의 비즈니스 로직을 거쳐 Repository/JPA로 저장됩니다.","textChars":64,"textLines":1,"bbox":[64,166,1040,34]}
+{"kind":"shape","id":"sh/sji5snel","slide":5,"bbox":[64,232,183.6,68]}
+{"kind":"textbox","id":"sh/za1gvy90","slide":5,"text":"Client","textPreview":"Client","textChars":6,"textLines":1,"bbox":[76,250,159.6,32]}
+{"kind":"textbox","id":"sh/ap4r65wj","slide":5,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[247.6,250,18,32]}
+{"kind":"shape","id":"sh/0je9cvix","slide":5,"bbox":[265.6,232,183.6,68]}
+{"kind":"textbox","id":"sh/t47y1kre","slide":5,"text":"Controller","textPreview":"Controller","textChars":10,"textLines":1,"bbox":[277.6,250,159.6,32]}
+{"kind":"textbox","id":"sh/idonyd0z","slide":5,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[449.2,250,18,32]}
+{"kind":"shape","id":"sh/byhgn29g","slide":5,"bbox":[467.2,232,183.6,68]}
+{"kind":"textbox","id":"sh/0rqd4vmt","slide":5,"text":"Service","textPreview":"Service","textChars":7,"textLines":1,"bbox":[479.2,250,159.6,32]}
+{"kind":"textbox","id":"sh/tcj6tova","slide":5,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[650.8,250,18,32]}
+{"kind":"shape","id":"sh/il0rqd4v","slide":5,"bbox":[668.8,232,183.6,68]}
+{"kind":"textbox","id":"sh/b6xkf6dc","slide":5,"text":"Repository","textPreview":"Repository","textChars":10,"textLines":1,"bbox":[680.8,250,159.6,32]}
+{"kind":"textbox","id":"sh/032lszqt","slide":5,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[852.4,250,18,32]}
+{"kind":"shape","id":"sh/tovahoza","slide":5,"bbox":[870.4,232,183.6,68]}
+{"kind":"textbox","id":"sh/tgfmlkjm","slide":5,"text":"MySQL","textPreview":"MySQL","textChars":5,"textLines":1,"bbox":[882.4,250,159.6,32]}
+{"kind":"shape","id":"sh/4vmtwra5","slide":5,"bbox":[64,354,610,238]}
+{"kind":"textbox","id":"sh/bat47y1k","slide":5,"text":"org.example.virtuber\n├─ auth      JWT 인증/토큰\n├─ account   계좌 조회/초기화\n├─ stock     종목/가격 스케줄러\n├─ trade     매수·매도·보유·거래\n├─ security  Security 설정/필터\n└─ common    응답/예외/에러코드","textPreview":"org.example.virtuber | ├─ auth      JWT 인증/토큰 | ├─ account   계좌 조회/초기화 | ├─ stock     종목/가격 스케줄러 | ├─ trade     매수·매도·보유·거래 | ├─ security...","textChars":167,"textLines":7,"bbox":[86,374,566,198]}
+{"kind":"shape","id":"sh/mp0bi9s3","slide":5,"bbox":[730,352,470,238]}
+{"kind":"textbox","id":"sh/tsvu9kni","slide":5,"text":"구현에서 복습한 Spring 원리","textPreview":"구현에서 복습한 Spring 원리","textChars":18,"textLines":1,"bbox":[760,382,380,34]}
+{"kind":"textbox","id":"sh/47y1kre1","slide":5,"text":"Bean 주입과 계층 간 의존 방향\nSecurity FilterChain과 인증 객체\nJPA Entity 변경 감지와 Repository\n서비스 메서드 단위 트랜잭션 경계","textPreview":"Bean 주입과 계층 간 의존 방향 | Security FilterChain과 인증 객체 | JPA Entity 변경 감지와 Repository | 서비스 메서드 단위 트랜잭션 경계","textChars":95,"textLines":4,"bbox":[762,438,388,120]}
+{"kind":"notes","id":"nt/cut2xb","slide":5,"text":""}
+{"kind":"slide","id":"sl/bjkylw","slide":6,"title":"3. 주요 기능","textShapes":22}
+{"kind":"textbox","id":"sh/dcbulwva","slide":6,"text":"3. 주요 기능","textPreview":"3. 주요 기능","textChars":8,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/6psfil0r","slide":6,"text":"주요 기능: MVP 흐름을 작게 유지","textPreview":"주요 기능: MVP 흐름을 작게 유지","textChars":20,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/val87ed8","slide":6,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/k3q5o7qp","slide":6,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/donyd0z6","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"shape","id":"sh/2x4nap4r","slide":6,"bbox":[64,174,201.6,68]}
+{"kind":"textbox","id":"sh/vixczed8","slide":6,"text":"회원가입","textPreview":"회원가입","textChars":4,"textLines":1,"bbox":[76,192,177.6,32]}
+{"kind":"textbox","id":"sh/kf6dcbul","slide":6,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[265.6,192,18,32]}
+{"kind":"shape","id":"sh/d0z61032","slide":6,"bbox":[283.6,174,201.6,68]}
+{"kind":"textbox","id":"sh/dsji5sne","slide":6,"text":"로그인","textPreview":"로그인","textChars":3,"textLines":1,"bbox":[295.6,192,177.6,32]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":6,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[485.2,192,18,32]}
+{"kind":"shape","id":"sh/vmtwra5g","slide":6,"bbox":[503.2,174,201.6,68]}
+{"kind":"textbox","id":"sh/61032lsz","slide":6,"text":"주식 조회","textPreview":"주식 조회","textChars":5,"textLines":1,"bbox":[515.2,192,177.6,32]}
+{"kind":"textbox","id":"sh/d4vmtwra","slide":6,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[704.8,192,18,32]}
+{"kind":"shape","id":"sh/oj2t83it","slide":6,"bbox":[722.8,174,201.6,68]}
+{"kind":"textbox","id":"sh/vy90je9c","slide":6,"text":"매수/매도","textPreview":"매수/매도","textChars":5,"textLines":1,"bbox":[734.8,192,177.6,32]}
+{"kind":"textbox","id":"sh/6dcbulwv","slide":6,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[924.4,192,18,32]}
+{"kind":"shape","id":"sh/d8v6psfi","slide":6,"bbox":[942.4,174,201.6,68]}
+{"kind":"textbox","id":"sh/onyd0z61","slide":6,"text":"계좌 확인","textPreview":"계좌 확인","textChars":5,"textLines":1,"bbox":[954.4,192,177.6,32]}
+{"kind":"shape","id":"sh/kre1w7mp","slide":6,"bbox":[64,298,248,240]}
+{"kind":"textbox","id":"sh/dcbulwva","slide":6,"text":"인증","textPreview":"인증","textChars":2,"textLines":1,"bbox":[88,326,190,34]}
+{"kind":"textbox","id":"sh/6psfil0r","slide":6,"text":"회원가입\n로그인\n토큰 재발급\n로그아웃","textPreview":"회원가입 | 로그인 | 토큰 재발급 | 로그아웃","textChars":20,"textLines":4,"bbox":[89,382,190,124]}
+{"kind":"shape","id":"sh/val87ed8","slide":6,"bbox":[352,298,248,240]}
+{"kind":"textbox","id":"sh/k3q5o7qp","slide":6,"text":"계좌","textPreview":"계좌","textChars":2,"textLines":1,"bbox":[376,326,190,34]}
+{"kind":"textbox","id":"sh/donyd0z6","slide":6,"text":"계좌 자동 생성\n시드머니 지급\n내 계좌 조회\n계좌 초기화","textPreview":"계좌 자동 생성 | 시드머니 지급 | 내 계좌 조회 | 계좌 초기화","textChars":31,"textLines":4,"bbox":[377,382,190,124]}
+{"kind":"shape","id":"sh/2x4nap4r","slide":6,"bbox":[640,298,248,240]}
+{"kind":"textbox","id":"sh/vixczed8","slide":6,"text":"거래","textPreview":"거래","textChars":2,"textLines":1,"bbox":[664,326,190,34]}
+{"kind":"textbox","id":"sh/kf6dcbul","slide":6,"text":"매수/매도\n거래 내역 저장\n실현손익 기록\n평균 매입가 계산","textPreview":"매수/매도 | 거래 내역 저장 | 실현손익 기록 | 평균 매입가 계산","textChars":32,"textLines":4,"bbox":[665,382,190,124]}
+{"kind":"shape","id":"sh/d0z61032","slide":6,"bbox":[928,298,248,240]}
+{"kind":"textbox","id":"sh/3ylc7u54","slide":6,"text":"지원","textPreview":"지원","textChars":2,"textLines":1,"bbox":[952,326,190,34]}
+{"kind":"textbox","id":"sh/adsji5sn","slide":6,"text":"초기 종목 데이터\n주가 변동 스케줄러\nSwagger UI\n간단한 프론트엔드 UI","textPreview":"초기 종목 데이터 | 주가 변동 스케줄러 | Swagger UI | 간단한 프론트엔드 UI","textChars":44,"textLines":4,"bbox":[953,382,190,124]}
+{"kind":"textbox","id":"sh/h4byhgn2","slide":6,"text":"핵심 판단: 기능을 늘리기보다 인증, 계층, 영속성, 트랜잭션을 끝까지 연결하는 데 집중","textPreview":"핵심 판단: 기능을 늘리기보다 인증, 계층, 영속성, 트랜잭션을 끝까지 연결하는 데 집중","textChars":49,"textLines":1,"bbox":[64,578,1060,34]}
+{"kind":"notes","id":"nt/bjkylw","slide":6,"text":""}
+{"kind":"slide","id":"sl/6wbqvi","slide":7,"title":"4. 주가 데이터","textShapes":14}
+{"kind":"textbox","id":"sh/vmtwra5g","slide":7,"text":"4. 주가 데이터","textPreview":"4. 주가 데이터","textChars":9,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":7,"text":"주가 데이터: 목 데이터와 Scheduler","textPreview":"주가 데이터: 목 데이터와 Scheduler","textChars":24,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/dsji5sne","slide":7,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/6dcbulwv","slide":7,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/vy90je9c","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"textbox","id":"sh/oj2t83it","slide":7,"text":"실제 주식 API 대신 data.sql 목 데이터를 사용하고, 10초마다 현재가를 랜덤 변동합니다.","textPreview":"실제 주식 API 대신 data.sql 목 데이터를 사용하고, 10초마다 현재가를 랜덤 변동합니다.","textChars":55,"textLines":1,"bbox":[64,164,1050,34]}
+{"kind":"shape","id":"sh/6hcrmhk3","slide":7,"bbox":[602,232,560,346]}
+{"kind":"textbox","id":"sh/z25kb6xk","slide":7,"text":"가격 변동 흐름","textPreview":"가격 변동 흐름","textChars":8,"textLines":1,"bbox":[634,264,420,34]}
+{"kind":"shape","id":"sh/vy90je9c","slide":7,"bbox":[634,334,104,68]}
+{"kind":"textbox","id":"sh/6dcbulwv","slide":7,"text":"스케줄러","textPreview":"스케줄러","textChars":4,"textLines":1,"bbox":[646,352,80,32]}
+{"kind":"textbox","id":"sh/d4vmtwra","slide":7,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[738,352,18,32]}
+{"kind":"shape","id":"sh/oj2t83it","slide":7,"bbox":[756,334,104,68]}
+{"kind":"textbox","id":"sh/vmtwra5g","slide":7,"text":"현재가 계산","textPreview":"현재가 계산","textChars":6,"textLines":1,"bbox":[768,352,80,32]}
+{"kind":"textbox","id":"sh/61032lsz","slide":7,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[860,352,18,32]}
+{"kind":"shape","id":"sh/dsji5sne","slide":7,"bbox":[878,334,104,68]}
+{"kind":"textbox","id":"sh/o7qpg3ex","slide":7,"text":"Stock 갱신","textPreview":"Stock 갱신","textChars":8,"textLines":1,"bbox":[890,352,80,32]}
+{"kind":"textbox","id":"sh/vahoza1g","slide":7,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[982,352,18,32]}
+{"kind":"shape","id":"sh/6tovahoz","slide":7,"bbox":[1000,334,104,68]}
+{"kind":"textbox","id":"sh/epkzupwb","slide":7,"text":"History 저장","textPreview":"History 저장","textChars":10,"textLines":1,"bbox":[1012,352,80,32]}
+{"kind":"shape","id":"sh/7adsji5s","slide":7,"bbox":[634,418,470,156]}
+{"kind":"textbox","id":"sh/wval87ed","slide":7,"text":"stock.price-update:\n  fixed-delay-ms: 10000\n  initial-delay-ms: 5000\n  min-rate: -0.01\n  max-rate: 0.01","textPreview":"stock.price-update: |   fixed-delay-ms: 10000 |   initial-delay-ms: 5000 |   min-rate: -0.01 |   max-rate: 0.01","textChars":103,"textLines":5,"bbox":[656,438,426,116]}
+{"kind":"table","id":"tb/w3m94fu1","slide":7,"name":"","rows":7,"cols":3,"preview":"종목 코드 | 종목명 | 초기 현재가","bbox":[64,232,500,304]}
+{"kind":"notes","id":"nt/6wbqvi","slide":7,"text":""}
+{"kind":"slide","id":"sl/5qzhjn","slide":8,"title":"5. 인증 방식","textShapes":17}
+{"kind":"textbox","id":"sh/udg7adsj","slide":8,"text":"5. 인증 방식","textPreview":"5. 인증 방식","textChars":8,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/54zidony","slide":8,"text":"인증 방식: Spring Security + JWT","textPreview":"인증 방식: Spring Security + JWT","textChars":28,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/cj6tovah","slide":8,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/nap4r65w","slide":8,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/upwb2hwf","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"textbox","id":"sh/5gbq1ory","slide":8,"text":"로그인 성공 시 Access Token과 Refresh Token을 발급하고, 보호 API는 Bearer Token으로 접근합니다.","textPreview":"로그인 성공 시 Access Token과 Refresh Token을 발급하고, 보호 API는 Bearer Token으로 접근합니다.","textChars":73,"textLines":1,"bbox":[64,164,1060,34]}
+{"kind":"shape","id":"sh/cvixczed","slide":8,"bbox":[64,238,201.6,68]}
+{"kind":"textbox","id":"sh/jm1cfa9w","slide":8,"text":"Signin","textPreview":"Signin","textChars":6,"textLines":1,"bbox":[76,256,177.6,32]}
+{"kind":"textbox","id":"sh/u18jqh0f","slide":8,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[265.6,256,18,32]}
+{"kind":"shape","id":"sh/w3m94fu1","slide":8,"bbox":[283.6,238,201.6,68]}
+{"kind":"textbox","id":"sh/loj2t83i","slide":8,"text":"Token 발급","textPreview":"Token 발급","textChars":8,"textLines":1,"bbox":[295.6,256,177.6,32]}
+{"kind":"textbox","id":"sh/ex0nuxc3","slide":8,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[485.2,256,18,32]}
+{"kind":"shape","id":"sh/3itgfmlk","slide":8,"bbox":[503.2,238,201.6,68]}
+{"kind":"textbox","id":"sh/wb2hwfyx","slide":8,"text":"Authorization","textPreview":"Authorization","textChars":13,"textLines":1,"bbox":[515.2,256,177.6,32]}
+{"kind":"textbox","id":"sh/lwval87e","slide":8,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[704.8,256,18,32]}
+{"kind":"shape","id":"sh/e9cvixcz","slide":8,"bbox":[722.8,238,201.6,68]}
+{"kind":"textbox","id":"sh/3q5o7qpg","slide":8,"text":"JWT Filter","textPreview":"JWT Filter","textChars":10,"textLines":1,"bbox":[734.8,256,177.6,32]}
+{"kind":"textbox","id":"sh/sneloj2t","slide":8,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[924.4,256,18,32]}
+{"kind":"shape","id":"sh/l87ed8ba","slide":8,"bbox":[942.4,238,201.6,68]}
+{"kind":"textbox","id":"sh/l0rqd4vm","slide":8,"text":"Authentication","textPreview":"Authentication","textChars":14,"textLines":1,"bbox":[954.4,256,177.6,32]}
+{"kind":"shape","id":"sh/wfyxobm5","slide":8,"bbox":[64,360,520,220]}
+{"kind":"textbox","id":"sh/7u54zido","slide":8,"text":"보호되는 API","textPreview":"보호되는 API","textChars":8,"textLines":1,"bbox":[92,388,260,32]}
+{"kind":"textbox","id":"sh/ed8bat47","slide":8,"text":"GET /api/v1/accounts/me\nPUT /api/v1/accounts/me/init\nPOST /api/v1/trades/buy\nPOST /api/v1/trades/sell\nGET /api/v1/trades","textPreview":"GET /api/v1/accounts/me | PUT /api/v1/accounts/me/init | POST /api/v1/trades/buy | POST /api/v1/trades/sell | GET /api/v1/trades","textChars":120,"textLines":5,"bbox":[94,442,420,118]}
+{"kind":"shape","id":"sh/lc7u54zi","slide":8,"bbox":[644,360,520,190]}
+{"kind":"textbox","id":"sh/wra5gbq1","slide":8,"text":"Authorization: Bearer {accessToken}\n\nprincipal = user.getId()\n클라이언트 userId는 신뢰하지 않음","textPreview":"Authorization: Bearer {accessToken} |  | principal = user.getId() | 클라이언트 userId는 신뢰하지 않음","textChars":83,"textLines":4,"bbox":[666,380,476,150]}
+{"kind":"notes","id":"nt/5qzhjn","slide":8,"text":""}
+{"kind":"slide","id":"sl/8fsabf","slide":9,"title":"6. 도메인 모델","textShapes":20}
+{"kind":"textbox","id":"sh/4vmtwra5","slide":9,"text":"6. 도메인 모델","textPreview":"6. 도메인 모델","textChars":9,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/bat47y1k","slide":9,"text":"도메인 모델: JPA 관계로 투자 상태 표현","textPreview":"도메인 모델: JPA 관계로 투자 상태 표현","textChars":24,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/mp0bi9s3","slide":9,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/tsvu9kni","slide":9,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/47y1kre1","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"shape","id":"sh/bm58z25k","slide":9,"bbox":[78,224,210,76]}
+{"kind":"textbox","id":"sh/m1cfa9w3","slide":9,"text":"User","textPreview":"User","textChars":4,"textLines":1,"bbox":[90,246,186,30]}
+{"kind":"shape","id":"sh/twra5gbq","slide":9,"bbox":[360,224,210,76]}
+{"kind":"textbox","id":"sh/4byhgn29","slide":9,"text":"Account","textPreview":"Account","textChars":7,"textLines":1,"bbox":[372,246,186,30]}
+{"kind":"shape","id":"sh/m58z25kb","slide":9,"bbox":[642,174,210,76]}
+{"kind":"textbox","id":"sh/bq1oryts","slide":9,"text":"Holding","textPreview":"Holding","textChars":7,"textLines":1,"bbox":[654,196,186,30]}
+{"kind":"shape","id":"sh/4byhgn29","slide":9,"bbox":[642,344,210,76]}
+{"kind":"textbox","id":"sh/twra5gbq","slide":9,"text":"Trade","textPreview":"Trade","textChars":5,"textLines":1,"bbox":[654,366,186,30]}
+{"kind":"shape","id":"sh/mhk3q5o7","slide":9,"bbox":[924,224,210,76]}
+{"kind":"textbox","id":"sh/b2hwfyxo","slide":9,"text":"Stock","textPreview":"Stock","textChars":5,"textLines":1,"bbox":[936,246,186,30]}
+{"kind":"shape","id":"sh/4nap4r65","slide":9,"bbox":[78,424,210,76]}
+{"kind":"textbox","id":"sh/t83itgfm","slide":9,"text":"RefreshToken","textPreview":"RefreshToken","textChars":12,"textLines":1,"bbox":[90,446,186,30]}
+{"kind":"shape","id":"sh/mp0bi9s3","slide":9,"bbox":[924,424,210,76]}
+{"kind":"textbox","id":"sh/bat47y1k","slide":9,"text":"StockPrice\nHistory","textPreview":"StockPrice | History","textChars":18,"textLines":2,"bbox":[936,438,186,46]}
+{"kind":"textbox","id":"sh/3ex0nuxc","slide":9,"text":"1:1","textPreview":"1:1","textChars":3,"textLines":1,"bbox":[290,244,54,26]}
+{"kind":"textbox","id":"sh/at47y1kr","slide":9,"text":"1:N","textPreview":"1:N","textChars":3,"textLines":1,"bbox":[574,194,54,26]}
+{"kind":"textbox","id":"sh/lkjm1cfa","slide":9,"text":"1:N","textPreview":"1:N","textChars":3,"textLines":1,"bbox":[574,364,54,26]}
+{"kind":"textbox","id":"sh/szqtcj6t","slide":9,"text":"N:1","textPreview":"N:1","textChars":3,"textLines":1,"bbox":[854,194,54,26]}
+{"kind":"textbox","id":"sh/32lszqtc","slide":9,"text":"N:1","textPreview":"N:1","textChars":3,"textLines":1,"bbox":[854,364,54,26]}
+{"kind":"textbox","id":"sh/ahoza1gv","slide":9,"text":"1:N","textPreview":"1:N","textChars":3,"textLines":1,"bbox":[290,444,54,26]}
+{"kind":"textbox","id":"sh/l87ed8ba","slide":9,"text":"1:N","textPreview":"1:N","textChars":3,"textLines":1,"bbox":[1026,356,54,26]}
+{"kind":"shape","id":"sh/sneloj2t","slide":9,"bbox":[288,260,72,2]}
+{"kind":"shape","id":"sh/3q5o7qpg","slide":9,"bbox":[570,222,70,2]}
+{"kind":"shape","id":"sh/e9cvixcz","slide":9,"bbox":[570,392,70,2]}
+{"kind":"shape","id":"sh/o7qpg3ex","slide":9,"bbox":[852,222,70,2]}
+{"kind":"shape","id":"sh/dsji5sne","slide":9,"bbox":[852,392,70,2]}
+{"kind":"shape","id":"sh/61032lsz","slide":9,"bbox":[178,300,2,124]}
+{"kind":"shape","id":"sh/vmtwra5g","slide":9,"bbox":[1028,300,2,124]}
+{"kind":"textbox","id":"sh/oj2t83it","slide":9,"text":"핵심 해석","textPreview":"핵심 해석","textChars":5,"textLines":1,"bbox":[64,568,140,30]}
+{"kind":"textbox","id":"sh/d4vmtwra","slide":9,"text":"Account가 거래의 기준점이며, Holding은 현재 상태, Trade는 변경 이력을 담당합니다.","textPreview":"Account가 거래의 기준점이며, Holding은 현재 상태, Trade는 변경 이력을 담당합니다.","textChars":56,"textLines":1,"bbox":[214,570,860,28]}
+{"kind":"notes","id":"nt/8fsabf","slide":9,"text":""}
+{"kind":"slide","id":"sl/5i0l1y","slide":10,"title":"7. API 설계 및 구현","textShapes":7}
+{"kind":"textbox","id":"sh/yxobm58z","slide":10,"text":"7. API 설계 및 구현","textPreview":"7. API 설계 및 구현","textChars":14,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/5o7qpg3e","slide":10,"text":"API 설계: 공통 응답과 10개 엔드포인트","textPreview":"API 설계: 공통 응답과 10개 엔드포인트","textChars":24,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/g3ex0nux","slide":10,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/r65wjudg","slide":10,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/ylc7u54z","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"shape","id":"sh/gr2p8nqx","slide":10,"bbox":[766,170,408,206]}
+{"kind":"textbox","id":"sh/rytsvu9k","slide":10,"text":"class ApiResponse<T> {\n  boolean success;\n  T data;\n  String message;\n  ErrorResponse error;\n  LocalDateTime timestamp;\n}","textPreview":"class ApiResponse<T> { |   boolean success; |   T data; |   String message; |   ErrorResponse error; |   LocalDateTime timestamp; | }","textChars":121,"textLines":7,"bbox":[788,190,364,166]}
+{"kind":"shape","id":"sh/yd0z6103","slide":10,"bbox":[766,406,408,184]}
+{"kind":"textbox","id":"sh/wb2hwfyx","slide":10,"text":"설계 포인트","textPreview":"설계 포인트","textChars":6,"textLines":1,"bbox":[792,432,250,30]}
+{"kind":"textbox","id":"sh/lwval87e","slide":10,"text":"성공/실패 응답 구조 통일\nValidation 오류는 details에 필드별 사유 제공\nSwagger UI로 API 시연과 문서 확인","textPreview":"성공/실패 응답 구조 통일 | Validation 오류는 details에 필드별 사유 제공 | Swagger UI로 API 시연과 문서 확인","textChars":74,"textLines":3,"bbox":[794,480,330,98]}
+{"kind":"table","id":"tb/032lszqt","slide":10,"name":"","rows":11,"cols":3,"preview":"Method | Endpoint | 설명","bbox":[64,170,660,432]}
+{"kind":"notes","id":"nt/5i0l1y","slide":10,"text":""}
+{"kind":"slide","id":"sl/ccphqa","slide":11,"title":"8. 정합성 처리","textShapes":12}
+{"kind":"textbox","id":"sh/ed8v6psf","slide":11,"text":"8. 정합성 처리","textPreview":"8. 정합성 처리","textChars":9,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/p4r65wju","slide":11,"text":"정합성 처리: 트랜잭션과 계좌 단위 락","textPreview":"정합성 처리: 트랜잭션과 계좌 단위 락","textChars":21,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/wjudg7ad","slide":11,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/7qpg3ex0","slide":11,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/i5sneloj","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"textbox","id":"sh/pwb2hwfy","slide":11,"text":"매수, 매도, 계좌 초기화는 모두 하나의 트랜잭션으로 처리하여 일부만 반영되는 상태를 막습니다.","textPreview":"매수, 매도, 계좌 초기화는 모두 하나의 트랜잭션으로 처리하여 일부만 반영되는 상태를 막습니다.","textChars":53,"textLines":1,"bbox":[64,164,1080,34]}
+{"kind":"textbox","id":"sh/0bi9s36h","slide":11,"text":"매수","textPreview":"매수","textChars":2,"textLines":1,"bbox":[64,256,120,34]}
+{"kind":"shape","id":"sh/7ed8bat4","slide":11,"bbox":[204,238,910,76]}
+{"kind":"textbox","id":"sh/itgfmlkj","slide":11,"text":"계좌 락 → 종목 조회 → 현금 차감 → Holding 생성/수정 → Trade 저장","textPreview":"계좌 락 → 종목 조회 → 현금 차감 → Holding 생성/수정 → Trade 저장","textChars":47,"textLines":1,"bbox":[230,260,850,30]}
+{"kind":"textbox","id":"sh/cvixczed","slide":11,"text":"매도","textPreview":"매도","textChars":2,"textLines":1,"bbox":[64,362,120,34]}
+{"kind":"shape","id":"sh/5gbq1ory","slide":11,"bbox":[204,344,910,76]}
+{"kind":"textbox","id":"sh/upwb2hwf","slide":11,"text":"계좌 락 → 보유 수량 검증 → 현금 증가 → Trade 저장 → 0주면 Holding 삭제","textPreview":"계좌 락 → 보유 수량 검증 → 현금 증가 → Trade 저장 → 0주면 Holding 삭제","textChars":51,"textLines":1,"bbox":[230,366,850,30]}
+{"kind":"textbox","id":"sh/nap4r65w","slide":11,"text":"초기화","textPreview":"초기화","textChars":3,"textLines":1,"bbox":[64,468,120,34]}
+{"kind":"shape","id":"sh/cj6tovah","slide":11,"bbox":[204,450,910,76]}
+{"kind":"textbox","id":"sh/54zidony","slide":11,"text":"비밀번호 검증 → 계좌 락 → Holding 삭제 → Trade 삭제 → 시드머니 복구","textPreview":"비밀번호 검증 → 계좌 락 → Holding 삭제 → Trade 삭제 → 시드머니 복구","textChars":48,"textLines":1,"bbox":[230,472,850,30]}
+{"kind":"shape","id":"sh/udg7adsj","slide":11,"bbox":[160,552,960,100]}
+{"kind":"textbox","id":"sh/nyd0z610","slide":11,"text":"@Lock(PESSIMISTIC_WRITE)\n@Query(\"select a from Account a where a.user.id = :userId\")\nOptional<Account> findByUserIdForUpdate(Long userId);","textPreview":"@Lock(PESSIMISTIC_WRITE) | @Query(\"select a from Account a where a.user.id = :userId\") | Optional<Account> findByUserIdForUpdate(Long use...","textChars":138,"textLines":3,"bbox":[182,572,916,60]}
+{"kind":"notes","id":"nt/ccphqa","slide":11,"text":""}
+{"kind":"slide","id":"sl/tnq4xo","slide":12,"title":"마무리","textShapes":18}
+{"kind":"textbox","id":"sh/wb2hwfyx","slide":12,"text":"마무리","textPreview":"마무리","textChars":3,"textLines":1,"bbox":[64,30,760,28]}
+{"kind":"textbox","id":"sh/3q5o7qpg","slide":12,"text":"정리: 작은 MVP로 Spring 기본기를 연결","textPreview":"정리: 작은 MVP로 Spring 기본기를 연결","textChars":26,"textLines":1,"bbox":[64,70,1020,70]}
+{"kind":"shape","id":"sh/e9cvixcz","slide":12,"bbox":[64,146,88,4]}
+{"kind":"textbox","id":"sh/loj2t83i","slide":12,"text":"Virtuber · Spring 기본 원리 복습","textPreview":"Virtuber · Spring 기본 원리 복습","textChars":26,"textLines":1,"bbox":[64,670,420,22]}
+{"kind":"textbox","id":"sh/w3m94fu1","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1168,668,48,24]}
+{"kind":"textbox","id":"sh/3itgfmlk","slide":12,"text":"이 프로젝트의 가치는 기능의 양보다 Spring의 기본 원리를 실제 흐름으로 확인했다는 점입니다.","textPreview":"이 프로젝트의 가치는 기능의 양보다 Spring의 기본 원리를 실제 흐름으로 확인했다는 점입니다.","textChars":54,"textLines":1,"bbox":[64,166,1040,36]}
+{"kind":"textbox","id":"sh/ex0nuxc3","slide":12,"text":"계층 구조","textPreview":"계층 구조","textChars":5,"textLines":1,"bbox":[64,260,180,32]}
+{"kind":"textbox","id":"sh/lkjm1cfa","slide":12,"text":"Controller-Service-Repository 책임 분리","textPreview":"Controller-Service-Repository 책임 분리","textChars":35,"textLines":1,"bbox":[250,264,330,30]}
+{"kind":"shape","id":"sh/szqtcj6t","slide":12,"bbox":[64,312,500,1]}
+{"kind":"textbox","id":"sh/il0rqd4v","slide":12,"text":"보안","textPreview":"보안","textChars":2,"textLines":1,"bbox":[634,260,180,32]}
+{"kind":"textbox","id":"sh/b6xkf6dc","slide":12,"text":"Security Filter와 JWT 인증 객체","textPreview":"Security Filter와 JWT 인증 객체","textChars":26,"textLines":1,"bbox":[820,264,330,30]}
+{"kind":"shape","id":"sh/0rqd4vmt","slide":12,"bbox":[634,312,500,1]}
+{"kind":"textbox","id":"sh/tcj6tova","slide":12,"text":"영속성","textPreview":"영속성","textChars":3,"textLines":1,"bbox":[64,364,180,32]}
+{"kind":"textbox","id":"sh/idonyd0z","slide":12,"text":"JPA 엔티티 관계와 변경 감지","textPreview":"JPA 엔티티 관계와 변경 감지","textChars":17,"textLines":1,"bbox":[250,368,330,30]}
+{"kind":"shape","id":"sh/byhgn29g","slide":12,"bbox":[64,416,500,1]}
+{"kind":"textbox","id":"sh/0je9cvix","slide":12,"text":"트랜잭션","textPreview":"트랜잭션","textChars":4,"textLines":1,"bbox":[634,364,180,32]}
+{"kind":"textbox","id":"sh/t47y1kre","slide":12,"text":"거래 처리의 원자성과 롤백","textPreview":"거래 처리의 원자성과 롤백","textChars":14,"textLines":1,"bbox":[820,368,330,30]}
+{"kind":"shape","id":"sh/i9s36hcr","slide":12,"bbox":[634,416,500,1]}
+{"kind":"textbox","id":"sh/bulwval8","slide":12,"text":"동시성","textPreview":"동시성","textChars":3,"textLines":1,"bbox":[64,468,180,32]}
+{"kind":"textbox","id":"sh/3itgfmlk","slide":12,"text":"비관적 락으로 잔고/수량 보호","textPreview":"비관적 락으로 잔고/수량 보호","textChars":16,"textLines":1,"bbox":[250,472,330,30]}
+{"kind":"shape","id":"sh/ex0nuxc3","slide":12,"bbox":[64,520,500,1]}
+{"kind":"textbox","id":"sh/loj2t83i","slide":12,"text":"운영 보조","textPreview":"운영 보조","textChars":5,"textLines":1,"bbox":[634,468,180,32]}
+{"kind":"textbox","id":"sh/w3m94fu1","slide":12,"text":"Scheduler, Swagger, 테스트 자동화","textPreview":"Scheduler, Swagger, 테스트 자동화","textChars":27,"textLines":1,"bbox":[820,472,330,30]}
+{"kind":"shape","id":"sh/3q5o7qpg","slide":12,"bbox":[634,520,500,1]}
+{"kind":"textbox","id":"sh/e9cvixcz","slide":12,"text":"다음 확장 후보: 실제 주식 API 연동, 주문 유형 확장, 수익률 랭킹, 프론트엔드 고도화","textPreview":"다음 확장 후보: 실제 주식 API 연동, 주문 유형 확장, 수익률 랭킹, 프론트엔드 고도화","textChars":51,"textLines":1,"bbox":[64,596,1040,34]}
+{"kind":"notes","id":"nt/tnq4xo","slide":12,"text":""}
