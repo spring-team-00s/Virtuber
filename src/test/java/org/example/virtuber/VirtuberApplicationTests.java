@@ -1,10 +1,9 @@
 package org.example.virtuber;
 
+import org.example.virtuber.support.IntegrationTestSupport;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class VirtuberApplicationTests {
+class VirtuberApplicationTests extends IntegrationTestSupport {
 
     @Test
     void contextLoads() {
