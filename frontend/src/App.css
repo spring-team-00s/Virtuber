@@ -542,3 +542,97 @@ th {
     grid-template-columns: 1fr;
   }
 }
+
+.price-chart-section {
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid #dce4ee;
+  border-radius: 8px;
+  background: #f7f9fc;
+}
+
+.chart-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.chart-title-row h3 {
+  margin: 0;
+  color: #303b4f;
+  font-size: 16px;
+}
+
+.chart-title-row span {
+  color: #657083;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.chart-box {
+  padding: 12px;
+  border: 1px solid #e1e7ef;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.price-chart {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.chart-grid-line {
+  stroke: #dce4ee;
+  stroke-width: 1;
+}
+
+.chart-line {
+  fill: none;
+  stroke: #1f5fbf;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-point {
+  fill: #fff;
+  stroke: #1f5fbf;
+  stroke-width: 2;
+}
+
+.chart-axis-label {
+  fill: #657083;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.chart-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  color: #657083;
+  font-size: 13px;
+}
+
+.chart-empty {
+  padding: 24px 14px;
+  border: 1px dashed #b9c5d4;
+  border-radius: 8px;
+  background: #fff;
+  color: #747f91;
+  text-align: center;
+  line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+  .chart-title-row,
+  .chart-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
