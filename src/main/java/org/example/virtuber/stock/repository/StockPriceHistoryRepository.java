@@ -13,4 +13,6 @@ public interface StockPriceHistoryRepository extends JpaRepository<StockPriceHis
       LocalDateTime start,
       LocalDateTime end
   );
+  // 최신 20개 가격 조회
+  List<StockPriceHistory> findTop20ByStock_IdOrderByRecordedTimeDesc(Long stockId);
 }

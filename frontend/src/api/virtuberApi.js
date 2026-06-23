@@ -25,6 +25,11 @@ export const getStocks = async () => {
   return unwrap(response);
 };
 
+export const getStockPriceHistories = async (stockId) => {
+  const response = await api.get(`/api/v1/stocks/${stockId}/price-histories`);
+  return unwrap(response);
+};
+
 export const getMyAccount = async () => {
   const response = await api.get("/api/v1/accounts/me");
   return unwrap(response);
